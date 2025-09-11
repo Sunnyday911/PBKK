@@ -19,6 +19,10 @@ Route::get('/partner', function () {
     return view('partner1', ['partner' => $partner]);
 });
 
+Route::get('/create', function () {
+    return view('create');
+});
+
 Route::get('/partner/{id}', function ($id) {
 
     return view('more', ['id' => $id]);

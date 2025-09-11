@@ -1,11 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>contact</title>
-</head>
-<body>
+<x-layouts>
     <a href="/">Home Page</a>
     <a href="/contact">About</a>
     <a href="/partner">About</a>
@@ -13,5 +6,4 @@
     <li>Phone Number : {{ $number }}</li>
     <li>Email : {{ $email }}</li>
     <li>Address : {{ $alamat }}</li>
-</body>
-</html>
+</x-layouts>

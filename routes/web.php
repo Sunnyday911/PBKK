@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\NinjaController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -10,20 +11,10 @@ Route::get('/contact', function () {
     return view('contact', ['number' => '080808', 'email' => 'akukuat@gmail.com', 'alamat' => 'jl.kehutanan']);
 });
 
-Route::get('/partner', function () {
-    $partner = [
-        ['name' => 'simba', 'skill' => 'sleeping', 'id' => '1'],
-        ['name' => 'mbk laufey', 'skill' => 'uaaaa', 'id' => '2']
-    ];
+Route::get('/partner', [NinjaController::class, 'index' ])->name('partner1');
 
-    return view('partner1', ['partner' => $partner]);
-});
+Route::get('/create', [NinjaController::class, 'create'])->name('create');
 
-Route::get('/create', function () {
-    return view('create');
-});
+Route::get('/partner/{id}', [NinjaController::class, 'show'])->name('more');
 
-Route::get('/partner/{id}', function ($id) {
-
-    return view('more', ['id' => $id]);
-});
+Route::post('/partner', [NinjaController::class, 'store'])->name('store');

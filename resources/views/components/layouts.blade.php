@@ -11,7 +11,7 @@
         <nav>
             <h1> Ninja Hatori</h1>
             <a href="/contact"> Contact</a>
-            <a href="/create"> Create</a>
+            <a href="{{ route ('create') }}"> Create</a>
         </nav>
     </header>
 

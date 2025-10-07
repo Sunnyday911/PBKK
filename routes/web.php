@@ -15,6 +15,7 @@ Route::get('/partner', [NinjaController::class, 'index' ])->name('partner1');
 
 Route::get('/create', [NinjaController::class, 'create'])->name('create');
 
-Route::get('/partner/{id}', [NinjaController::class, 'show'])->name('more');
+Route::get('/partner/{partner}', [NinjaController::class, 'show'])->name('more');
 
 Route::post('/partner', [NinjaController::class, 'store'])->name('store');
+Route::delete('/partner/{partner}', [NinjaController::class, 'destroy'])->name('destroy');

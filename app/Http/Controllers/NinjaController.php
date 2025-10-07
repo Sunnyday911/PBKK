@@ -19,9 +19,9 @@ class NinjaController extends Controller
       return view('partner1', ['partner' => $partner]);
     }
 
-    public function show($id) {
+    public function show(Ninja $partner) {
 
-      $partner = Ninja::with('dojo')->findOrFail($id);
+      $partner->load('dojo');
 
       return view('more', ['partner' => $partner]);
     }
@@ -42,12 +42,14 @@ class NinjaController extends Controller
 
       Ninja::create($validated);
 
-      return redirect()->route('partner1');
+      return redirect()->route('partner1')->with('success', 'Ninja Created');
     }
 
-    public function destroy($id) {
+    public function destroy(Ninja $partner) {
       // --> /ninjas/{id} (DELETE)
-      // handle delete request to delete a ninja record from table
+      $partner->delete();
+
+      return redirect()->route('partner1')->with('success', 'Ninja Deleted!');
     }
 
     // edit() and update() for edit view and update requests
